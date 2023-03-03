@@ -3,41 +3,28 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<div th:replace="~{fragment :: head}"></div>
+<link th:replace="~{fragment :: head}"></link>
 </head>
 <body>
-	<h1>LE MIE FOTO:</h1>
+
+<h1>LE MIE FOTO:</h1>
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mt-5">
+    <div th:each="foto : ${ElencoFoto}" class="col mb-3">
+      <div class="card text-bg-primary h-100">
+        <img th:src="${foto.url}" class="card-img-top img-fluid" alt="..." style="height: 150px; object-fit: cover;">
+        <div class="card-body">
+          <h5 th:text="${foto.titolo}" class="card-title"></h5>
+          <p th:text="${foto.descrizione}" class="card-text"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
-<!-- CICLO LE FOTO CONTENUTE NEL MIO ELENCOFOTO -->
-<!-- 		<div th:each=" foto : ${ElencoFoto}"> -->
-<!-- 			<h3 th:text="${foto.titolo}" class="text-uppercase"></h3> -->
-<!-- 			<h3 th:text="${foto.id}" class="text-uppercase"></h3> -->
-<!-- 			<img th:src="${foto.url}" class="rounded-circle" width="250" height="250"> -->
-			
 
-		</div>
-	
-	<table class="table table-bordered border-primary">
-  <thead>
-    <tr>
-      <th>Titolo:</th>
-      <th>Foto ID:</th>
-      <th>Immagine:</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr  th:each=" foto : ${ElencoFoto}">
-      <td th:text="${foto.titolo}" class="text-uppercase"></td>
-      <td th:text="${foto.id}" class="text-uppercase"></td>
-      <td class="d-flex justify-content-center"><img th:src="${foto.url}" class="rounded-circle text center" width="150" height="150" ></img></td>
-
-	  
-		
-    </tr>
-    
-</table>
 	<div th:replace="~{fragment :: script}"></div>
 </body>
 </html>
