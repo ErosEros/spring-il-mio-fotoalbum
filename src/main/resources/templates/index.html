@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<div th:replace="~{fragment :: head}"></div>
+</head>
+<body>
+	<h1>LE MIE FOTO:</h1>
+
+
+
+<!-- CICLO LE FOTO CONTENUTE NEL MIO ELENCOFOTO -->
+<!-- 		<div th:each=" foto : ${ElencoFoto}"> -->
+<!-- 			<h3 th:text="${foto.titolo}" class="text-uppercase"></h3> -->
+<!-- 			<h3 th:text="${foto.id}" class="text-uppercase"></h3> -->
+<!-- 			<img th:src="${foto.url}" class="rounded-circle" width="250" height="250"> -->
+			
+
+		</div>
+	
+	<table class="table table-bordered border-primary">
+  <thead>
+    <tr>
+      <th>Titolo:</th>
+      <th>Foto ID:</th>
+      <th>Immagine:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr  th:each=" foto : ${ElencoFoto}">
+      <td th:text="${foto.titolo}" class="text-uppercase"></td>
+      <td th:text="${foto.id}" class="text-uppercase"></td>
+      <td class="d-flex justify-content-center"><img th:src="${foto.url}" class="rounded-circle text center" width="150" height="150" ></img></td>
+
+	  
+		
+    </tr>
+    
+</table>
+	<div th:replace="~{fragment :: script}"></div>
+</body>
+</html>
