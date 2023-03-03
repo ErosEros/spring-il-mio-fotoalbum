@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Dettaglio delle Foto</title>
+<link th:replace="~{fragment :: head}"></link>
+</head>
+<body>
+
+<h1>DETTAGLI E CARATTERISTICHE DELLA FOTO:</h1>
+
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mt-5">
+    <div class="col mb-3">
+      <div class="card text-bg-primary h-100">
+        <img th:src="${foto.url}" class="card-img-top img-fluid" alt="..." style="height: 150px; object-fit: cover;">
+        <div class="card-body">
+          <h5 th:text="'Titolo della foto: ' + ${foto.titolo}" class="card-title"></h5>
+          <p th:text="'ID della foto: ' + ${foto.id}" class="card-text"></p>
+          <p th:text="'Descrizione della foto: ' + ${foto.descrizione}" class="card-text"></p>
+          <p th:text="'Tag della foto: ' + ${foto.tag}" class="card-text"></p>
+          <a class="btn btn-primary btn-sm text-white" style="background-color: red; border: 2px solid white;" th:href="@{/foto}">
+  			<i class="bi bi-arrow-left"></i>Homepage
+  		  </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- <div class="container"> -->
+<!--   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mt-5"> -->
+<!--     <div th:each="foto : ${ElencoFoto}" class="col mb-3"> -->
+<!--       <div class="card text-bg-primary h-100"> -->
+<!--         <img th:src="${foto.url}" class="card-img-top img-fluid" alt="..." style="height: 150px; object-fit: cover;"> -->
+<!--         <div class="card-body"> -->
+<!--           <h5 th:text="${foto.titolo}" class="card-title"></h5> -->
+<!--           <p th:text="${foto.descrizione}" class="card-text"></p> -->
+<!--         </div> -->
+<!--       </div> -->
+<!--     </div> -->
+<!--   </div> -->
+<!-- </div> -->
+
+<div th:replace="~{fragment :: script}"></div>
+
+</body>
+</html>
