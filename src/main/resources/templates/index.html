@@ -42,7 +42,7 @@
   				th:href="@{/foto/edit/{id} (id=${foto.id})}">
     				<i class="bi bi-arrow-left"></i>Modifica la Foto
   				</a>
-  				<form action="#" th:action="@{/foto/delete/{id} (id=${foto.id})}" method="post"  >
+  				<form action="#" th:action="@{/foto/delete/{id} (id=${foto.id})}" method="post" onsubmit="return confirm('Sei sicuro di voler eliminare questa foto?');" >
   					<button class="btn btn-primary text-white m-2 flex-grow-1" style="background-color: red; border: 2px solid white;">
     					<i class="bi bi-arrow-left"></i>Elimina la Foto
   					</button>

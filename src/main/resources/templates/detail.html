@@ -17,7 +17,7 @@
     </a>
   </div>
   <div class="col-4 mt-2">
-    <form action="#" th:action="@{/foto/delete/{id} (id=${foto.id})}" method="post">
+    <form action="#" th:action="@{/foto/delete/{id} (id=${foto.id})}" method="post" onsubmit="return confirm('Sei sicuro di voler eliminare questa foto?');">
       <button class="btn btn-primary text-white w-50 btn-sm" style="background-color: red; border: 2px solid black;">
         <i class="bi bi-arrow-left"></i>Elimina la Foto
       </button>
@@ -33,7 +33,7 @@
 
 
 <div class="container ">
-  <div class="row d-flex flex-column align-content-center row-cols-1 row-cols-sm-2 row-cols-md-3 g-4  ">
+  <div class="row d-flex flex-column align-content-center row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mt-1 ">
     <div class="col mb-3">
       <div class="card text-bg-primary h-100">
         <img th:src="${foto.url}" class="card-img-top img-fluid" alt="..." style="height: 150px; object-fit: cover;">
