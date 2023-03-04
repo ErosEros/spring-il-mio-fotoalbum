@@ -34,7 +34,7 @@ public class FotoController {
 		List<Foto> elencoFoto; 
 		
 		if(keyword!=null && !keyword.isEmpty())
-			elencoFoto = fotoRepo.findByTitoloLike("%"+keyword+"%");
+			elencoFoto = fotoRepo.findByTitoloLikeOrderByTitolo("%"+keyword+"%");
 		
 		else if(tag!=null && !tag.isEmpty())
 			elencoFoto = fotoRepo.findByTagLike("%"+tag+"%");
