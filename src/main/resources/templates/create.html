@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Dettaglio delle Foto</title>
+<link th:replace="~{fragment :: head}"></link>
+</head>
+<body>
+
+<!-- FORM PER LA CREAZIONE DI UNA NUOVA FOTO -->
+<div class="row mt-5">
+  <div class="col-md-8 mx-auto">
+    <form id="foto-form" th:object="${foto}" th:action="@{/foto/create}" method="post" class="card border p-3">
+      
+
+	  
+<!--       TITOLO -->
+      <div class="form-row">
+			<div class="form-group d-flex flex-column flex-md-row justify-content-between align-items-baseline col-12 col-md-12">
+    			<label for="titolo" class="col-form-label text-lg-right fs-5 mb-0" style="margin-right: 10px;">Titolo:</label>
+    			<input id="titolo" th:field="*{titolo}" type="text" class="form-control form-control-sm ml-2" style="width: 70%" placeholder="Inserisci il titolo">
+			</div>
+       </div>
+       
+<!--        DESCRIZIONE -->
+       <div class="form-row">
+	        <div class="form-group d-flex flex-column flex-md-row justify-content-between align-items-baseline col-12 col-md-12">
+    			<label for="descrizione" class="col-form-label text-lg-right fs-5 mb-0" style="margin-right: 10px;">Descrizione:</label>
+    			<input id="descrizione" th:field="*{descrizione}" type="text" class="form-control form-control-sm ml-2" style="width: 70%" placeholder="Inserisci la descrizione">
+			</div>
+      </div>
+      
+<!--       URL -->
+      <div class="form-row">
+	        <div class="form-group d-flex flex-column flex-md-row justify-content-between align-items-baseline col-12 col-md-12">
+    			<label for="url" class="col-form-label text-lg-right fs-5 mb-0" style="margin-right: 10px;">Foto:</label>
+    			<input id="url" th:field="*{url}" type="url" class="form-control form-control-sm ml-2" style="width: 70%" placeholder="Inserisci l'url della foto">
+			</div>
+      </div>
+      
+   <!--       TAG -->        
+      <div class="form-row">
+	        <div class="form-group d-flex flex-column flex-md-row justify-content-between align-items-baseline col-12 col-md-12">
+    			<label for="tag" class="col-form-label text-lg-right fs-5 mb-0" style="margin-right: 10px;">Tag:</label>
+    			<input id="tag" th:field="*{tag}" type="text" class="form-control form-control-sm ml-2" style="width: 70%" placeholder="Inserisci il tag">
+			</div>
+	  </div>
+	  
+	  	  
+<!--  INPUT RADIO			 -->
+	<div class="btn-group-toggle mt-4" data-toggle="buttons">
+  		<label class="btn btn-primary text-white" th:classappend="${visibile} == true ? 'active' : ''">
+    		<input type="radio" name="visibile" th:field="*{visibile}" value="1"> Visibile
+    	</label>
+  		<label class="btn btn-primary text-white" th:classappend="${visibile} == false ? 'active' : ''">
+    		<input type="radio" name="visibile" th:field="*{visibile}" value="0"> Non visibile
+  		</label>
+	</div>
+
+<!-- BOTTONE PER SALVARE -->
+      <div class="form-group  row">
+        <div class="col-sm-9 offset-sm-3 mt-3 text-center">
+          <button class="btn btn-danger btn-sm mx-auto" type="submit">Salva</button>
+        </div>
+      </div>
+
+
+    </form>
+  </div>
+</div>
+	<div th:replace="~{fragment :: script}"></div>
+</body>
+</html>
