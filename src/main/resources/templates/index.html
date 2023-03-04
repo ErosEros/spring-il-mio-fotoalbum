@@ -31,24 +31,26 @@
 
 
 <!-- LAYOUT PER VISUALIZZARE LE FOTO PRESENTI -->
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mt-5">
+ <div class="container">
+   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mt-5">
     <div th:each="foto : ${ElencoFoto}" class="col mb-3">
       <div class="card text-bg-primary h-100 d-flex">
         <img th:src="${foto.url}" class="card-img-top img-fluid h-75 object-fit-cover" alt="...">
-        <div class="card-body d-flex flex-column justify-content-end">
-          <h5 th:text="${foto.titolo}" class="card-title"></h5>
-          <div class="mt-auto mb-3 align-self-end">
-            <a class="btn btn-primary btn-sm text-white" style="background-color: red; border: 2px solid white; margin-left: 10px; margin-right: 10px;"
-   		   		th:href="@{'foto/' + ${foto.id}}">
-              <i class="bi bi-arrow-left"></i>Visualizza i Dettagli
-            </a>
-          </div>
-        </div>
+        <h5 th:text="${foto.titolo}" class="card-title"></h5>
+			<div class="d-flex justify-content-center mt-2  flex-wrap align-items-center">
+  				<a class="btn btn-primary text-white m-2 flex-grow-1" style="background-color: red; border: 2px solid white;" 					th:href="@{'foto/' + ${foto.id}}">
+    				<i class="bi bi-arrow-left"></i>Visualizza i Dettagli
+  				</a>
+  				<a class="btn btn-primary text-white m-2 flex-grow-1" style="background-color: red; border: 2px solid white;" 					th:href="@{/foto/edit/{id} (id=${foto.id})}">
+    				<i class="bi bi-arrow-left"></i>Modifica la Foto
+  				</a>
+			</div>
       </div>
     </div>
   </div>
 </div>
+
+
 
 <!-- LINK COLLEGAMENTO PER /FOTO/CREATE -->
 	<a class="btn btn-primary btn-sm text-white m-5" style="background-color: red; border: 2px solid white; margin-left: 10px; margin-right: 10px;"th:href="@{foto/create}">

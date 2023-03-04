@@ -76,4 +76,31 @@ public class FotoController {
 		return "redirect:/foto";
 		
 	}
+	
+//		METODO EDIT 
+		@GetMapping("/edit/{id}")
+		public String edit(@PathVariable("id") Integer id, Model model) {
+			Foto foto;
+			foto=fotoRepo.getReferenceById(id);
+			model.addAttribute("foto",foto);
+			return "/edit";
+		}
+		
+//		METODO UPDATE
+		@PostMapping("/edit/{id}")
+		public String update(@Valid @ModelAttribute Foto formFoto,
+		BindingResult bindingResult,
+		Model model ) {
+			
+//		VALIDAZIONE
+		if(bindingResult.hasErrors())
+			return "/edit";
+		
+//		Salvo il nuovo oggetto formFoto
+		fotoRepo.save(formFoto);
+
+			return "redirect:/foto";
+		}
+		
+
 }
