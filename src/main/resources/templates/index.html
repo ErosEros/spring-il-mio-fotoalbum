@@ -7,19 +7,27 @@
 </head>
 <body>
 
-	<h3 class="text-italic text-primary">Vi presento la mia galleria:</h3>
+	<h3 class="text-italic text-primary">La mia galleria:</h3>
 
 <!-- FORM DI COMPILAZIONE PER LA RICERCA DELLE FOTO TRAMITE IL TITOLO -->
 	<div class="row mt-5">
-  		<div class="col-md-3 mx-auto">
-    		<form action="foto" method="get">
-      			<div class="input-group">
+  		<div class="col-md-12 ">
+    		<form action="foto" class="d-flex justify-content-around " method="get">
+      			<div class="d-flex ">
         			<input type="text" class="form-control bg-white text-dark border-dark rounded-0" placeholder="Cerca tra le foto" name="keyword" style="color: white;">
         			<button class="btn btn-danger border-dark" type="submit">Cerca</button>
+        		</div>	
+        		<!-- FORM DI COMPILAZIONE PER LA RICERCA DELLE FOTO TRAMITE IL TAG -->
+        		<div class=" d-flex ">
+        			<input type="text" class="form-control bg-white text-dark border-dark rounded-0"  placeholder="Cerca tra i #tag" name="tag" style="color: white;">
+        			<button class="btn btn-danger border-dark" type="submit" >Cerca</button>
       			</div>
     		</form>
   		</div>
 	</div>
+	
+	
+
 
 
 <!-- LAYOUT PER VISUALIZZARE LE FOTO PRESENTI -->

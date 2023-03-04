@@ -24,13 +24,17 @@ public class FotoController {
 	FotoRepository fotoRepo;
 	
 	@GetMapping
-	public String index(@RequestParam(name="keyword", required = false) String keyword,
+	public String index
+	(@RequestParam(name="keyword", required = false) String keyword,
+	 @RequestParam(name="tag",required = false)String tag,
 		Model model) {
 		List<Foto> elencoFoto; 
 		
 		if(keyword!=null && !keyword.isEmpty())
 			elencoFoto = fotoRepo.findByTitoloLike("%"+keyword+"%");
 		
+		else if(tag!=null && !tag.isEmpty())
+			elencoFoto = fotoRepo.findByTagLike("%"+tag+"%");
 		else
 			elencoFoto = fotoRepo.findAll();
 		
@@ -38,7 +42,7 @@ public class FotoController {
 		return "index";
 	}
 	
-	@GetMapping("/{id}") // GESTISCO LE RICHIESTE /id
+	@GetMapping("/{id}") // GESTISCO LE RICHIESTE foto/id
 	public String detail(@PathVariable("id") Integer id, Model model) {
 		Foto foto=fotoRepo.getReferenceById(id);
 		model.addAttribute("foto" , foto);
@@ -46,14 +50,14 @@ public class FotoController {
 	}
 	
 //	METODO CREATE 
-	@GetMapping("/create") // GESTISCO LE RICHIESTE GET /FOTO/CREATE
+	@GetMapping("/create") // GESTISCO LE RICHIESTE GET /foto/create
 	public String create(Model model) {
 		Foto foto=new Foto();
 		model.addAttribute("foto", foto);
 		return "/create";
 	}
 	
-	@PostMapping("/create") // GESTISCO LE RICHIESTE POST /FOTO/CREATE
+	@PostMapping("/create") // GESTISCO LE RICHIESTE POST /foto/create
 	public String store(
 			@ModelAttribute("foto") Foto formFoto, 
 			Model model ) {		

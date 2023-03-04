@@ -10,5 +10,5 @@ import com.corsojava.foto.model.Foto;
 public interface FotoRepository extends JpaRepository<Foto, Integer> {
 
 	List<Foto> findByTitoloLike(String keyword);
-//	List<Foto> findByTagLike(String tag);
+	List<Foto> findByTagLike(String tag);
 }
