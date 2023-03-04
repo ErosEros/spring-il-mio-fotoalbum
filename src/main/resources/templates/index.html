@@ -25,10 +25,6 @@
     		</form>
   		</div>
 	</div>
-	
-	
-
-
 
 <!-- LAYOUT PER VISUALIZZARE LE FOTO PRESENTI -->
  <div class="container">
@@ -38,12 +34,19 @@
         <img th:src="${foto.url}" class="card-img-top img-fluid h-75 object-fit-cover" alt="...">
         <h5 th:text="${foto.titolo}" class="card-title"></h5>
 			<div class="d-flex justify-content-center mt-2  flex-wrap align-items-center">
-  				<a class="btn btn-primary text-white m-2 flex-grow-1" style="background-color: red; border: 2px solid white;" 					th:href="@{'foto/' + ${foto.id}}">
+  				<a class="btn btn-primary text-white m-2 flex-grow-1" style="background-color: red; border: 2px solid white;" 					
+  				th:href="@{'foto/' + ${foto.id}}">
     				<i class="bi bi-arrow-left"></i>Visualizza i Dettagli
   				</a>
-  				<a class="btn btn-primary text-white m-2 flex-grow-1" style="background-color: red; border: 2px solid white;" 					th:href="@{/foto/edit/{id} (id=${foto.id})}">
+  				<a class="btn btn-primary text-white m-2 flex-grow-1" style="background-color: red; border: 2px solid white;" 					
+  				th:href="@{/foto/edit/{id} (id=${foto.id})}">
     				<i class="bi bi-arrow-left"></i>Modifica la Foto
   				</a>
+  				<form action="#" th:action="@{/foto/delete/{id} (id=${foto.id})}" method="post"  >
+  					<button class="btn btn-primary text-white m-2 flex-grow-1" style="background-color: red; border: 2px solid white;">
+    					<i class="bi bi-arrow-left"></i>Elimina la Foto
+  					</button>
+  				</form>	
 			</div>
       </div>
     </div>
@@ -53,7 +56,7 @@
 
 
 <!-- LINK COLLEGAMENTO PER /FOTO/CREATE -->
-	<a class="btn btn-primary btn-sm text-white m-5" style="background-color: red; border: 2px solid white; margin-left: 10px; margin-right: 10px;"th:href="@{foto/create}">
+	<a class="btn btn-primary btn-sm text-white m-5" style="background-color: red; border: 2px solid black; margin-left: 10px; margin-right: 10px;"th:href="@{/foto/create}">
     <i class="bi bi-arrow-left"></i>Inserisci una nuova foto</a>
 
 	<div th:replace="~{fragment :: script}"></div>

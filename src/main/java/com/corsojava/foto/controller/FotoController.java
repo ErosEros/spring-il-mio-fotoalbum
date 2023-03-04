@@ -102,5 +102,11 @@ public class FotoController {
 			return "redirect:/foto";
 		}
 		
-
+//		METODO DELETE
+		@PostMapping("/delete/{id}") 
+		public String delete(@PathVariable("id") Integer id) {
+			fotoRepo.deleteById(id);
+			return "redirect:/foto";
+			
+		}
 }

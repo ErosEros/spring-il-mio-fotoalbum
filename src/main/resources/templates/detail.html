@@ -9,8 +9,31 @@
 
 <h1>DETTAGLI E CARATTERISTICHE DELLA FOTO:</h1>
 
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mt-5">
+<!-- BOTTONI PER MODIFICARE E ELIMINARE FOTO -->
+<div class="column py-2">
+  <div class="col-4">
+    <a class="btn btn-primary text-white w-50 btn-sm" style="background-color: red; border: 2px solid black;" th:href="@{/foto/edit/{id} (id=${foto.id})}">
+      <i class="bi bi-arrow-left"></i>Modifica la Foto
+    </a>
+  </div>
+  <div class="col-4 mt-2">
+    <form action="#" th:action="@{/foto/delete/{id} (id=${foto.id})}" method="post">
+      <button class="btn btn-primary text-white w-50 btn-sm" style="background-color: red; border: 2px solid black;">
+        <i class="bi bi-arrow-left"></i>Elimina la Foto
+      </button>
+    </form>	
+  </div>
+  <div class="col-4 mt-2">
+    <a class="btn btn-primary text-white w-50 btn-sm" style="background-color: red; border: 2px solid black;" th:href="@{/foto}">
+  		<i class="bi bi-arrow-left"></i>Homepage
+  	</a>
+  </div>
+</div>
+
+
+
+<div class="container ">
+  <div class="row d-flex flex-column align-content-center row-cols-1 row-cols-sm-2 row-cols-md-3 g-4  ">
     <div class="col mb-3">
       <div class="card text-bg-primary h-100">
         <img th:src="${foto.url}" class="card-img-top img-fluid" alt="..." style="height: 150px; object-fit: cover;">
