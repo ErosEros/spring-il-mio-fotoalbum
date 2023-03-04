@@ -16,22 +16,25 @@ public class Foto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Size(min = 2, max = 15, message = "Deve contenere un numero di carattari compreso tra 2 e 15.")
+	@Size(min = 2, max = 15, message = "Il titolo deve contenere un numero di carattari compreso tra 2 e 15.")
 	@NotNull(message="Il titolo non può essere nullo!!")
 	@NotEmpty(message="Il titolo non può essere vuoto!!")
 	private String titolo ;
 
-	@Size(min = 5, max = 255, message = "Deve contenere un numero di carattari compreso tra 2 e 15.")
+	@Size(min = 5, max = 255, message = "La descrizione deve contenere un numero di carattari compreso tra 5 e 255.")
 	@NotNull(message="La descrizione non può essere nulla!!")
 	@NotEmpty(message="La descrizione non può essere vuota!!")
 	private String descrizione;
 	
+	@NotNull(message="L'URL non può essere nulla!!")
+	@NotEmpty(message="L'URL non può essere vuota!!")
 	private String url;
 	
-	@Size(min = 2, max = 20, message = "Deve contenere un numero di carattari compreso tra 2 e 15.")
+	@Size(min = 2, max = 20, message = "Il tag deve contenere un numero di carattari compreso tra 2 e 20.")
 	@NotNull(message="Il tag non può essere nullo!!")
 	@NotEmpty(message="Il tag non può essere vuoto!!")
 	private String tag;
+	
 	
 	private boolean visibile;
 	

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.corsojava.foto.model.Foto;
 import com.corsojava.foto.repo.FotoRepository;
+
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/foto")
@@ -59,8 +62,15 @@ public class FotoController {
 	
 	@PostMapping("/create") // GESTISCO LE RICHIESTE POST /foto/create
 	public String store(
-			@ModelAttribute("foto") Foto formFoto, 
-			Model model ) {		
+			@Valid@ModelAttribute("foto") Foto formFoto,
+			BindingResult bindingResult,
+			Model model ) {	
+		
+//		VALIDAZIONE
+		if(bindingResult.hasErrors())
+			return "/create";
+		
+		
 //		Salvo il nuovo oggetto formFoto
 		fotoRepo.save(formFoto);
 		return "redirect:/foto";

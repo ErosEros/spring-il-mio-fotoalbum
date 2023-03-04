@@ -7,12 +7,18 @@
 </head>
 <body>
 
+
+
 <!-- FORM PER LA CREAZIONE DI UNA NUOVA FOTO -->
 <div class="row mt-5">
   <div class="col-md-8 mx-auto">
     <form id="foto-form" th:object="${foto}" th:action="@{/foto/create}" method="post" class="card border p-3">
       
-
+<!--       MOSTRO I MESSAGGI DELLE VALIDAZIONE -->
+		<ul>
+			<li th:each="err : ${#fields.allErrors()}" th:text="${err}"
+					class="text-danger"></li>
+		</ul>
 	  
 <!--       TITOLO -->
       <div class="form-row">
@@ -63,9 +69,12 @@
           <button class="btn btn-danger btn-sm mx-auto" type="submit">Salva</button>
         </div>
       </div>
-
-
     </form>
+    <!-- BOTTONE PER TORNARE ALLA HOMEPAGE -->
+          <a class="btn btn-primary btn-sm text-white" style="background-color: red; border: 2px solid white;" th:href="@{/foto}">
+  			<i class="bi bi-arrow-left"></i>Homepage
+  		  </a>
+  		  
   </div>
 </div>
 	<div th:replace="~{fragment :: script}"></div>

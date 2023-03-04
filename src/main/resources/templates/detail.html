@@ -19,14 +19,12 @@
           <p th:text="'ID della foto: ' + ${foto.id}" class="card-text"></p>
           <p th:text="'Descrizione della foto: ' + ${foto.descrizione}" class="card-text"></p>
           <p th:text="'Tag della foto: ' + ${foto.tag}" class="card-text"></p>
-          <a class="btn btn-primary btn-sm text-white" style="background-color: red; border: 2px solid white;" th:href="@{/foto}">
-  			<i class="bi bi-arrow-left"></i>Homepage
-  		  </a>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div>	
+
 
 <div th:replace="~{fragment :: script}"></div>
 
