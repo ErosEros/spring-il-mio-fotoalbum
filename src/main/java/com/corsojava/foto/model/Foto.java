@@ -1,9 +1,12 @@
 package com.corsojava.foto.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -37,6 +40,9 @@ public class Foto {
 	
 	
 	private boolean visibile;
+	
+	@ManyToMany
+	private List<Categoria> categorie; 
 	
 //	GETTERS AND SETTERS
 
