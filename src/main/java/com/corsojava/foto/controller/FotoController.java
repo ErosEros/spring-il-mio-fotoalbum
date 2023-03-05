@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.corsojava.foto.model.Categoria;
 import com.corsojava.foto.model.Foto;
+import com.corsojava.foto.repo.CategoriaRepository;
 import com.corsojava.foto.repo.FotoRepository;
 
 import jakarta.validation.Valid;
@@ -25,6 +27,9 @@ public class FotoController {
 	
 	@Autowired 
 	FotoRepository fotoRepo;
+	
+	@Autowired
+	CategoriaRepository categoriaRepo;
 	
 	@GetMapping
 	public String index
@@ -55,6 +60,7 @@ public class FotoController {
 //	METODO CREATE 
 	@GetMapping("/create") // GESTISCO LE RICHIESTE GET /foto/create
 	public String create(Model model) {
+		
 		Foto foto=new Foto();
 		model.addAttribute("foto", foto);
 		return "/create";
@@ -80,6 +86,11 @@ public class FotoController {
 //		METODO EDIT 
 		@GetMapping("/edit/{id}")
 		public String edit(@PathVariable("id") Integer id, Model model) {
+			
+//			LISTA DI CATEGORIE
+			List<Categoria> categorieLista = categoriaRepo.findAll();
+			model.addAttribute("categorieLista" , categorieLista);
+			
 			Foto foto;
 			foto=fotoRepo.getReferenceById(id);
 			model.addAttribute("foto",foto);

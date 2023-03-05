@@ -9,6 +9,7 @@
 
 
 
+
 <!-- FORM PER LA MODIFICA DI UNA NUOVA FOTO -->
 <div class="row mt-5">
   <div class="col-md-8 mx-auto">
@@ -52,6 +53,27 @@
 			</div>
 	  </div>
 	  
+
+
+<!-- <!-- FORM CATEGORIA --> 
+ 	<div class="form-row">
+  		<label for="tag" class="col-form-label text-lg-right fs-5 mb-0" style="margin-right: 10px;">Categorie:</label>
+		<div class="d-flex flex-wrap">
+  			<div th:each="categoria : ${categorieLista}" class="form-group col-6 col-sm-4 col-md-2">
+   		 		<input type="checkbox" class="form-check-input" 
+      			th:value="${categoria.id}" th:field="*{categorie}"
+      			th:id="|categoria_${categoria.id}">
+    			<label class="form-check-label" 
+      			th:text="${categoria.nomeCategoria}" th:for="|categoria_${categoria.id}"></label>
+ 			 </div>
+		</div>
+
+	</div>
+			
+	
+
+
+
 	  	  
 <!--  INPUT RADIO			 -->
 	<div class="btn-group-toggle mt-4" data-toggle="buttons">
@@ -63,18 +85,25 @@
   		</label>
 	</div>
 
+
+	
+
+		
+
 <!-- BOTTONE PER SALVARE -->
       <div class="form-group  row">
         <div class="col-sm-9 offset-sm-3 mt-3 text-center">
           <button class="btn btn-danger btn-sm mx-auto" type="submit">Salva</button>
         </div>
       </div>
+      
+     
+	  
     </form>
     <!-- BOTTONE PER TORNARE ALLA HOMEPAGE -->
           <a class="btn btn-primary btn-sm text-white" style="background-color: red; border: 2px solid white;" th:href="@{/foto}">
   			<i class="bi bi-arrow-left"></i>Homepage
   		  </a>
-  		  
   </div>
 </div>
 	<div th:replace="~{fragment :: script}"></div>
