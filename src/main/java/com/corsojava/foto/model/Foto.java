@@ -2,6 +2,7 @@ package com.corsojava.foto.model;
 
 import java.util.List;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -41,8 +42,6 @@ public class Foto {
 	
 	private boolean visibile;
 	
-	@ManyToMany
-	private List<Categoria> categorie; 
 	
 //	GETTERS AND SETTERS
 
@@ -94,4 +93,14 @@ public class Foto {
 		this.visibile = visibile;
 	}
 
+	public List<Categoria> getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(List<Categoria> categorie) {
+		this.categorie = categorie;
+	}
+
+	@ManyToMany
+	private List<Categoria> categorie; 
 }

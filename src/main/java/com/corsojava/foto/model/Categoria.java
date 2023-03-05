@@ -22,9 +22,8 @@ public class Categoria {
 	@NotNull(message="Il Nome della Categoria non può essere nullo!!")
 	@NotEmpty(message="Il Nome della Categoria essere vuoto!!")
 	private String nomeCategoria;
-
-	@ManyToMany(mappedBy = "categorie")
-	private List<Foto> foto;
+	
+//	GETTERS AND SETTERS
 	
 	public int getId() {
 		return id;
@@ -42,6 +41,17 @@ public class Categoria {
 		this.nomeCategoria = nomeCategoria;
 	}
 	
-//	GETTERS AND SETTERS
+
+	public List<Foto> getFoto() {
+		return foto;
+	}
+
+	public void setFoto(List<Foto> foto) {
+		this.foto = foto;
+	}
 	
+
+
+	@ManyToMany(mappedBy = "categorie")
+	private List<Foto> foto;
 }

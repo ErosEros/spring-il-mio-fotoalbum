@@ -30,8 +30,17 @@
   </div>
 </div>
 
+<!-- CATEGORIE ASSOCIATE-->
+
+<div>
+	<h5 th:if="${foto.categorie.size()>0}">Categorie Associate:</h5>
+	<ul>
+		<li th:each="categoria : ${foto.categorie}" th:text="${categoria.nomeCategoria}"></li>
+	</ul>
+</div>
 
 
+<!-- CARD -->
 <div class="container ">
   <div class="row d-flex flex-column align-content-center row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mt-1 ">
     <div class="col mb-3">
@@ -47,6 +56,8 @@
     </div>
   </div>
 </div>	
+
+
 
 
 <div th:replace="~{fragment :: script}"></div>
