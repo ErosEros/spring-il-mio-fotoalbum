@@ -60,6 +60,10 @@ public class FotoController {
 //	METODO CREATE 
 	@GetMapping("/create") // GESTISCO LE RICHIESTE GET /foto/create
 	public String create(Model model) {
+	
+//		LISTA DI CATEGORIE
+		List<Categoria> categorieLista = categoriaRepo.findAll();
+		model.addAttribute("categorieLista" , categorieLista);
 		
 		Foto foto=new Foto();
 		model.addAttribute("foto", foto);

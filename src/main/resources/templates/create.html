@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Dettaglio delle Foto</title>
+<title>Inserisci la tua nuova foto</title>
 <link th:replace="~{fragment :: head}"></link>
 </head>
 <body>
@@ -52,6 +52,20 @@
 			</div>
 	  </div>
 	  
+	  <!-- <!-- FORM CATEGORIA --> 
+ 	<div class="form-row">
+  		<label for="tag" class="col-form-label text-lg-right fs-5 mb-0" style="margin-right: 10px;">Categorie:</label>
+		<div class="d-flex flex-wrap">
+  			<div th:each="categoria : ${categorieLista}" class="form-group col-6 col-sm-4 col-md-2">
+   		 		<input type="checkbox" class="form-check-input" 
+      			th:value="${categoria.id}" th:field="*{categorie}"
+      			th:id="${'categoria' + categoria.id}">
+    			<label class="form-check-label" 
+      			th:text="${categoria.nomeCategoria}" th:for="${'categoria' + categoria.id}"></label>
+ 			 </div>
+		</div>
+	</div>
+	  
 	  	  
 <!--  INPUT RADIO			 -->
 	<div class="btn-group-toggle mt-4" data-toggle="buttons">
@@ -71,7 +85,7 @@
       </div>
     </form>
     <!-- BOTTONE PER TORNARE ALLA HOMEPAGE -->
-          <a class="btn btn-primary btn-sm text-white" style="background-color: red; border: 2px solid white;" th:href="@{/foto}">
+          <a class="btn btn-primary btn-sm text-white" style="background-color: red; border: 2px solid black;" th:href="@{/foto}">
   			<i class="bi bi-arrow-left"></i>Homepage
   		  </a>
   		  

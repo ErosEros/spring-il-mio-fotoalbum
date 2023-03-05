@@ -62,12 +62,11 @@
   			<div th:each="categoria : ${categorieLista}" class="form-group col-6 col-sm-4 col-md-2">
    		 		<input type="checkbox" class="form-check-input" 
       			th:value="${categoria.id}" th:field="*{categorie}"
-      			th:id="|categoria_${categoria.id}">
+      			th:id="${'categoria' + categoria.id}">
     			<label class="form-check-label" 
-      			th:text="${categoria.nomeCategoria}" th:for="|categoria_${categoria.id}"></label>
+      			th:text="${categoria.nomeCategoria}" th:for="${'categoria' + categoria.id}"></label>
  			 </div>
 		</div>
-
 	</div>
 			
 	
