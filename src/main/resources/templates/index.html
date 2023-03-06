@@ -4,29 +4,46 @@
 <meta charset="ISO-8859-1">
 <title>La mia Galleria</title>
 <link th:replace="~{fragment :: head}"></link>
+
 </head>
 <body>
 
-	<h3 class="text-italic text-primary">La mia galleria:</h3>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-custom">
+    <div class="container-fluid">
+        <a class="navbar-brand text-danger" href="/">HOME</a>
+        <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-around" id="navbarNav">
+            <ul class="navbar-nav ms-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="/foto/create">CREA FOTO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/categorie">CATEGORIE</a>
+                </li>
+            </ul>
+            <form class="d-flex justify-content-center align-items-center">
+                <div class="input-group">
+                    <input class="form-control bg-white text-dark border-dark rounded-0" type="search" placeholder="Cerca tra le foto" aria-label="Cerca tra le foto" name="keyword">
+                    <button class="btn btn-danger border-dark" type="submit">SEARCH TITLE</button>
+                </div>
+                <div class="input-group ms-3">
+                    <input class="form-control bg-white text-dark border-dark rounded-0" type="search" placeholder="Cerca tra i #tag" aria-label="Cerca tra i #tag" name="tag">
+                    <button class="btn btn-danger border-dark" type="submit">CERCA #</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
 
-<!-- FORM DI COMPILAZIONE PER LA RICERCA DELLE FOTO TRAMITE IL TITOLO -->
-	<div class="row mt-5">
-  		<div class="col-md-12 ">
-    		<form action="foto" class="d-flex justify-content-around " method="get">
-      			<div class="d-flex ">
-        			<input type="text" class="form-control bg-white text-dark border-dark rounded-0" placeholder="Cerca tra le foto" name="keyword" style="color: white;">
-        			<button class="btn btn-danger border-dark" type="submit">Cerca</button>
-        		</div>	
-        		<!-- FORM DI COMPILAZIONE PER LA RICERCA DELLE FOTO TRAMITE IL TAG -->
-        		<div class=" d-flex ">
-        			<input type="text" class="form-control bg-white text-dark border-dark rounded-0"  placeholder="Cerca tra i #tag" name="tag" style="color: white;">
-        			<button class="btn btn-danger border-dark" type="submit" >Cerca</button>
-      			</div>
-    		</form>
-  		</div>
-	</div>
 
-<!-- LAYOUT PER VISUALIZZARE LE FOTO PRESENTI -->
+
+
+	<!-- LAYOUT PER VISUALIZZARE LE FOTO PRESENTI -->
  <div class="container">
    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mt-5">
     <div th:each="foto : ${ElencoFoto}" class="col mb-3">
@@ -59,6 +76,13 @@
 	<a class="btn btn-primary btn-sm text-white m-5" style="background-color: red; border: 2px solid black; margin-left: 10px; margin-right: 10px;"th:href="@{/foto/create}">
     <i class="bi bi-arrow-left"></i>Inserisci una nuova foto</a>
 
+	<!-- 	LINK COLLEGAMENTO PER /CATEGORIA/CREATE -->
+	<a class="btn btn-primary btn-sm text-white m-5"
+		style="background-color: red; border: 2px solid black; margin-left: 10px; margin-right: 10px;"
+		th:href="@{/categorie/create}"> <i class="bi bi-arrow-left"></i>Inserisci
+		una nuova categoria
+	</a>
+	
 	<div th:replace="~{fragment :: script}"></div>
 </body>
 </html>

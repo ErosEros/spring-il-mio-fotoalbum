@@ -1,10 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Categorie</title>
+<link th:replace="~{fragment :: head}"></link>
 </head>
 <body>
 
+	<h3 class="text-italic text-primary">Categorie:</h3>
+
+
+	<table class="table">
+		<thead>
+			<tr>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="categoria : ${categoria}">
+				<td th:text="${categoria.nomeCategoria}" class="text-black"></td>
+				<td>
+					<form action="#"
+						th:action="@{'/categorie/delete/{id}'(id=${categoria.id})}"
+						method="post" onsubmit="return confirm('Sei sicuro di voler eliminare questa foto?');" >
+						<button class="btn btn-primary" type="submit" id="submitButton">
+							<i class="fas fa-trash-alt"></i>
+						</button>
+						<a class="btn btn-primary px- mx-2"
+							th:href="@{'/categorie/edit/{id}'(id=${categoria.id})}">Modifica</a>
+					</form>
+				</td>
+
+			</tr>
+		</tbody>
+
+
+	</table>
+
+
+
+
+	<!-- 	LINK COLLEGAMENTO PER /CATEGORIA/CREATE -->
+	<a class="btn btn-primary btn-sm text-white m-5"
+		style="background-color: red; border: 2px solid black; margin-left: 10px; margin-right: 10px;"
+		th:href="@{/categorie/create}"> <i class="bi bi-arrow-left"></i>Inserisci
+		una nuova categoria
+	</a>
+	
+	<!-- 	LINK COLLEGAMENTO PER /CATEGORIA/CREATE -->
+		<a class="btn btn-primary btn-sm text-white m-5"
+		style="background-color: red; border: 2px solid black; margin-left: 10px; margin-right: 10px;"
+		th:href="@{/}"> <i class="bi bi-arrow-left"></i>Homepage
+	</a>
+
+	<div th:replace="~{fragment :: script}"></div>
 </body>
 </html>

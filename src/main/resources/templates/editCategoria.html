@@ -12,8 +12,8 @@
 	<div class="row mt-5">
 		<div class="col-md-8 mx-auto">
 			<form id="categoria-form" th:object="${categoria}"
-				th:action="@{/categorie/create}" method="post"
-				class="card border p-3">
+				th:action="@{/categorie/edit/{id} (id=${categoria.id})}"
+				class="card border p-3" method="post">
 
 				<!--       MOSTRO I MESSAGGI DELLE VALIDAZIONE -->
 				<ul>
@@ -27,7 +27,7 @@
 						class="form-group d-flex flex-column flex-md-row justify-content-between align-items-baseline col-12 col-md-12">
 						<label for="nomeCategoria"
 							class="col-form-label text-lg-right fs-5 mb-0"
-							style="margin-right: 10px;">Crea Categoria:</label> 
+							style="margin-right: 10px;">Modifica Categoria:</label> 
 						<input
 							id="nomeCategoria" th:field="*{nomeCategoria}" type="text"
 							class="form-control form-control-sm ml-2" style="width: 70%"
